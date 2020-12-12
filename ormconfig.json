@@ -1,0 +1,32 @@
+[
+  {
+    "name": "development",
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "root",
+    "database": "yourdbname",
+    "synchronize": true,
+    "logging": true,
+    "entities": [
+      "src/db/models/**/*.ts",
+      "build/dist/packages/backend/db/models/**/*.js"
+    ]
+  },
+  {
+    "name": "test",
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "root",
+    "database": "yourtestdbname",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+      "src/db/models/**/*.ts",
+      "build/dist/packages/db/models/**/*.js"
+    ]
+  }
+]
