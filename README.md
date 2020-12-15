@@ -1,5 +1,7 @@
 # Node-Express BackEnd Boilerplate using MySQL and TypeScript
 
+[CHANGELOG](https://github.com/kmpizmad/node-express-mysql-typescript-boilerplate/blob/main/CHANGELOG.md)
+
 1. [x] Express API
 2. [x] Error handling
 3. [x] MySQL with TypeORM
