@@ -3,21 +3,21 @@ import { env } from 'process';
 
 export const notFoundHandler = (
   _req: Request,
-  _res: Response,
+  res: Response,
   next: NextFunction
 ) => {
   const err: any = new Error('Not found');
-  err.status = 404;
+  res.status(404);
   next(err);
 };
 
 export const errorHandler = (
   err: any,
-  req: Request,
+  _req: Request,
   res: Response,
   _next: NextFunction
 ) => {
-  const errCode = req.statusCode === 200 ? 500 : req.statusCode;
+  const errCode = res.statusCode === 200 ? 500 : res.statusCode;
 
   res.json({
     message: err.message,
