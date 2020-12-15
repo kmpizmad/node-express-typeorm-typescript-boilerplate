@@ -4,9 +4,10 @@
   "description": "Node-Express-TypeScript api boilerplate",
   "main": "src/index.ts",
   "scripts": {
+    "git": "git add . && git commit -m",
     "test": "set NODE_ENV=test && jest --detectOpenHandles",
+    "devStart": "set NODE_ENV=development && nodemon --exec ts-node src/index.ts",
     "build": "rm -rf ./build && tsc --project .",
-    "dev": "set NODE_ENV=development && nodemon --exec ts-node src/index.ts",
     "start": "set NODE_ENV=production && ts-node src/index.ts"
   },
   "keywords": [
