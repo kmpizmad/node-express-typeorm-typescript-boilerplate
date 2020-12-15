@@ -5,7 +5,7 @@ import {
   getConnectionOptions,
 } from 'typeorm';
 
-export const connect = () => {
+export const connectToDatabase = () => {
   (async () => {
     const connectionOptions: ConnectionOptions = await getConnectionOptions(
       env.NODE_ENV!.trim()

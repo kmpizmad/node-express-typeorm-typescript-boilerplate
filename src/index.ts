@@ -1,6 +1,6 @@
 import 'dotenv/config';
-import { connect } from './db/database';
+import { connectToDatabase } from './db/database';
 import { startServer } from './server/server';
 
-connect();
+connectToDatabase();
 startServer();
