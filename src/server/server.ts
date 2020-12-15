@@ -21,10 +21,12 @@ server.use(morgan());
 server.use(urlencoded({ extended: false }));
 server.use(json());
 
+// Routes
 server.use('/', router);
 server.use(notFoundHandler);
 server.use(errorHandler);
 
+// Start server
 export const startServer = () => {
   server.listen(port, () => {
     console.log(yellow('Server started on port'), white(port));
