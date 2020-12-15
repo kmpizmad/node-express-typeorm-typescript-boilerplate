@@ -8,7 +8,7 @@
     "password": "root",
     "database": "yourdbname",
     "synchronize": true,
-    "logging": true,
+    "logging": false,
     "entities": [
       "src/db/models/**/*.ts",
       "build/dist/packages/backend/db/models/**/*.js"

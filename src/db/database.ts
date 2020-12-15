@@ -7,9 +7,13 @@ import {
 
 export const connectToDatabase = () => {
   (async () => {
-    const connectionOptions: ConnectionOptions = await getConnectionOptions(
-      env.NODE_ENV!.trim()
-    );
-    await createConnection({ ...connectionOptions, name: 'default' });
+    await connectToDatabaseAsync();
   })();
+};
+
+export const connectToDatabaseAsync = async () => {
+  const connectionOptions: ConnectionOptions = await getConnectionOptions(
+    env.NODE_ENV!.trim()
+  );
+  return createConnection({ ...connectionOptions, name: 'default' });
 };
