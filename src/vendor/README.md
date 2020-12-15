@@ -29,5 +29,10 @@ export default () =>
   );
 ```
 
-Call signature eg.: `server.use((() => morgan('dev'))());`<br />
-Instead, it uses `server.use(morgan())`
+### Usage
+
+```
+import morgan from '../vendor/morgan';
+
+server.use(morgan());
+```
