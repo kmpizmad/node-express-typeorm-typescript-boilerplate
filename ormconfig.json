@@ -9,10 +9,17 @@
     "database": "yourdbname",
     "synchronize": true,
     "logging": false,
-    "entities": [
-      "src/db/models/**/*.ts",
-      "build/dist/packages/backend/db/models/**/*.js"
-    ]
+    "entities": ["src/db/models/**/*.ts", "build/db/models/**/*.js"],
+    "migrations": ["src/db/migrations/**/*.ts", "build/db/migrations/**/*.js"],
+    "subscribers": [
+      "src/db/subscribers/**/*.ts",
+      "build/db/subscribers/**/*.js"
+    ],
+    "cli": {
+      "entitiesDir": "src/db/models",
+      "migrationsDir": "src/db/migrations",
+      "subscribersDir": "src/db/subscribers"
+    }
   },
   {
     "name": "test",
@@ -23,10 +30,18 @@
     "password": "root",
     "database": "yourtestdbname",
     "synchronize": true,
+    "dropSchema": true,
     "logging": false,
-    "entities": [
-      "src/db/models/**/*.ts",
-      "build/dist/packages/db/models/**/*.js"
-    ]
+    "entities": ["src/db/models/**/*.ts", "build/db/models/**/*.js"],
+    "migrations": ["src/db/migrations/**/*.ts", "build/db/migrations/**/*.js"],
+    "subscribers": [
+      "src/db/subscribers/**/*.ts",
+      "build/db/subscribers/**/*.js"
+    ],
+    "cli": {
+      "entitiesDir": "src/db/models",
+      "migrationsDir": "src/db/migrations",
+      "subscribersDir": "src/db/subscribers"
+    }
   }
 ]

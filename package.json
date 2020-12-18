@@ -1,6 +1,6 @@
 {
   "name": "node-express-typescript-api-boilerplate",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Node-Express-TypeScript api boilerplate",
   "main": "src/index.ts",
   "scripts": {
