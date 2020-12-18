@@ -1,4 +1,5 @@
 import { env } from 'process';
+import 'reflect-metadata';
 import {
   ConnectionOptions,
   createConnection,

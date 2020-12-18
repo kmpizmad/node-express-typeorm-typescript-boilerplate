@@ -2,6 +2,7 @@ import { hash } from 'bcrypt';
 import {
   BaseEntity,
   BeforeInsert,
+  BeforeUpdate,
   Column,
   CreateDateColumn,
   Entity,
@@ -32,6 +33,13 @@ export class User extends BaseEntity {
   })
   password: string;
 
+  @Column({
+    type: 'varchar',
+    length: 255,
+    nullable: true,
+  })
+  profilePicture: string;
+
   @CreateDateColumn({
     type: 'timestamp',
   })
@@ -44,6 +52,7 @@ export class User extends BaseEntity {
   tokenVersion: number;
 
   @BeforeInsert()
+  @BeforeUpdate()
   async hashPassword() {
     this.password = await hash(this.password, 10);
   }
