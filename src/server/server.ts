@@ -10,6 +10,7 @@ import { json, urlencoded } from 'body-parser';
 
 import { router } from '../routes/router';
 import { errorHandler, notFoundHandler } from '../middlewares/errorHandlers';
+import { join } from 'path';
 
 const server: Application = express();
 const port = env.PORT || 8000;
@@ -20,6 +21,7 @@ server.use(helmet());
 server.use(morgan());
 server.use(urlencoded({ extended: false }));
 server.use(json());
+server.use('/uploads', express.static(join(__dirname, '../assets/uploads')));
 
 // Routes
 server.use('/', router);
