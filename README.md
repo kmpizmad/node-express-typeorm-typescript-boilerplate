@@ -1,26 +1,49 @@
 # Node-Express BackEnd Boilerplate using MySQL and TypeScript
 
-[CHANGELOG](https://github.com/kmpizmad/node-express-mysql-typescript-boilerplate/blob/main/CHANGELOG.md)
+1. Express API
+2. Error handling
+3. Middlewares
+4. MySQL with TypeORM
+5. JWT authentication
+6. File uploading with multer
 
-1. [x] Express API
-2. [x] Error handling
-3. [x] MySQL with TypeORM
-4. [x] JWT authentication
-5. [x] Middlewares
+See [changelog](https://github.com/kmpizmad/node-express-mysql-typescript-boilerplate/blob/main/CHANGELOG.md) for the latest updates.
 
 ### EndPoints
 
-**Root:** `/api`
+`/api`
+`/api/users`
+`/api/users/:id`
 
-**Users**
+`/auth/register`
+`/auth/confirm/:token` - JWT token required to create entity in the database
 
-1. `/users`
-
-**Logs**
-
-1. `/logs`
-2. `/logs/:day` - format eg. _/logs/2020-12-15_
+`/logs`
+`/logs/:day` - format eg. _/logs/2020-12-15_
 
 ### Middlewares
 
-1. [x] isAuthenticated
+**`isAuthenticated`**
+
+Checks if the user is authenticated. Throws `401 - Unauthenticated` if not.
+
+**`isEmail`**
+
+Checks if the `email` field contains a valid email format.
+
+**`isExists`**
+
+Check if an `entity` does exist on a model. Throws corresponding error if not.
+
+Example: `router.route('/').post(isExistsOn(User, true), isEmail, registration.post!)`<br />
+True means that the error should be thrown when it exists. `User` is the model / entity.
+
+**`isPasswordChange`**
+
+Checks if the user posted a different password. Useful when `Change password` action happens on the frontend.
+
+### TODO
+
+1. [ ] Redis
+2. [ ] Login
+3. [ ] Tests
