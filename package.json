@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "git": "git add . && git commit -m",
-    "test": "set NODE_ENV=test && jest --detectOpenHandles",
+    "test": "set NODE_ENV=test && jest --detectOpenHandles --coverage",
     "devStart": "set NODE_ENV=development && nodemon --exec ts-node src/index.ts",
     "build": "rm -rf ./build && tsc --project .",
     "start": "set NODE_ENV=production && ts-node src/index.ts"
@@ -25,11 +25,13 @@
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "helmet": "^4.2.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.20",
     "morgan": "^1.10.0",
+    "multer": "^1.4.2",
     "mysql": "^2.18.1",
     "nodemailer": "^6.4.17",
     "reflect-metadata": "^0.1.13",
@@ -42,12 +44,14 @@
     "@types/cookie-parser": "^1.4.2",
     "@types/cors": "2.8.8",
     "@types/dotenv": "^8.2.0",
+    "@types/email-validator": "^1.0.6",
     "@types/express": "^4.17.8",
     "@types/helmet": "^4.0.0",
     "@types/jest": "^26.0.19",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/lodash": "^4.14.165",
     "@types/morgan": "^1.9.2",
+    "@types/multer": "^1.4.5",
     "@types/mysql": "^2.15.16",
     "@types/node": "^14.14.12",
     "@types/nodemailer": "^6.4.0",
@@ -77,6 +81,7 @@
       "node"
     ],
     "verbose": true,
-    "forceExit": true
+    "forceExit": true,
+    "coverageDirectory": "__tests__"
   }
 }
