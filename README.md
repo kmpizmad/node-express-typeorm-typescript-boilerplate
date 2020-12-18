@@ -27,10 +27,10 @@ See [changelog](https://github.com/kmpizmad/node-express-mysql-typescript-boiler
 
 **`isEmail`**: Checks if the `email` field contains a valid email format.
 
-**`isExists`**: Check if an `entity` does exist on a model. Throws corresponding error if not.
+**`isExists`**: Check if an `entity` does exist on a model. Throws corresponding error if not.<br />
+**Example:**<br />
 
-> _Example: `router.route('/').post(isExistsOn(User, true), isEmail, registration.post!)`_<br />
-> _**True** means that the error should be **thrown when it exists**. `User` is the model / entity._
+> _`router.route('/').post(isExistsOn(User, true), isEmail, registration.post!)`_<br /> > _**True** means that the error should be **thrown when it exists**. `User` is the model / entity._
 
 **`isPasswordChange`**: Checks if the user posted a different password. Useful when `Change password` action happens on the frontend.
 
