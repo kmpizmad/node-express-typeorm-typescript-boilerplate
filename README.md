@@ -11,36 +11,28 @@ See [changelog](https://github.com/kmpizmad/node-express-mysql-typescript-boiler
 
 ### EndPoints
 
-`/api`
-`/api/users`
+`/api`<br />
+`/api/users`<br />
 `/api/users/:id`
 
-`/auth/register`
+`/auth/register`<br />
 `/auth/confirm/:token` - JWT token required to create entity in the database
 
-`/logs`
+`/logs`<br />
 `/logs/:day` - format eg. _/logs/2020-12-15_
 
 ### Middlewares
 
-**`isAuthenticated`**
+**`isAuthenticated`**: Checks if the user is authenticated. Throws `401 - Unauthenticated` if not.
 
-Checks if the user is authenticated. Throws `401 - Unauthenticated` if not.
+**`isEmail`**: Checks if the `email` field contains a valid email format.
 
-**`isEmail`**
-
-Checks if the `email` field contains a valid email format.
-
-**`isExists`**
-
-Check if an `entity` does exist on a model. Throws corresponding error if not.
+**`isExists`**: Check if an `entity` does exist on a model. Throws corresponding error if not.
 
 Example: `router.route('/').post(isExistsOn(User, true), isEmail, registration.post!)`<br />
 True means that the error should be thrown when it exists. `User` is the model / entity.
 
-**`isPasswordChange`**
-
-Checks if the user posted a different password. Useful when `Change password` action happens on the frontend.
+**`isPasswordChange`**: Checks if the user posted a different password. Useful when `Change password` action happens on the frontend.
 
 ### TODO
 
