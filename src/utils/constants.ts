@@ -1,8 +1,27 @@
 import { env } from 'process';
 import { CorsOptions } from 'cors';
 import { format } from 'winston';
+import multer from 'multer';
 
 export const today = new Date().toISOString().substring(0, 10);
+
+export const storage = multer.diskStorage({
+  destination: (_req, _file, cb) => {
+    cb(null, 'src/assets/uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${req.params.id}-${file.originalname}`);
+  },
+});
+
+export const limits = {
+  fileSize: 1024 * 1024 * 5,
+};
+
+export const upload = multer({
+  storage,
+  limits,
+});
 
 export const corsOptions: CorsOptions = {
   allowedHeaders: [
