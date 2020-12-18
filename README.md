@@ -1,4 +1,4 @@
-# Node-Express BackEnd Boilerplate using MySQL and TypeScript
+# Node-Express BackEnd Boilerplate using TypeORM and TypeScript
 
 1. Express API
 2. Error handling
