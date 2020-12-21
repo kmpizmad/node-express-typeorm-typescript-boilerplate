@@ -9,6 +9,15 @@
 
 See [changelog](https://github.com/kmpizmad/node-express-mysql-typescript-boilerplate/blob/main/CHANGELOG.md) for the latest updates.
 
+### Commands
+
+`yarn git` - shorthand for `git add . && git commit -m"
+`yarn migration` - shorthand for `typeorm migration:create -n`
+`yarn test` - run tests (use --coverage option to see more elaborated results)
+`yarn build` - builds the application to the `build` folder
+`yarn devStart` - starts the server in `development` mode
+`yarn start` - starts the server in `production` mode
+
 ### EndPoints
 
 `/api`<br />
