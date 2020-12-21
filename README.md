@@ -1,5 +1,7 @@
 # Node-Express BackEnd Boilerplate using TypeORM and TypeScript
 
+### Technologies
+
 1. Express API
 2. MySQL with TypeORM
 3. Redis
