@@ -3,12 +3,17 @@
 ### Technologies
 
 1. Express API
-2. MySQL with TypeORM
-3. Redis
-4. JWT authentication
-5. File upload with multer
-6. Custom middlewares
-7. Custom error handling
+2. CORS
+3. Helmet
+4. Cookie parser
+5. Body parser
+6. Morgan and Winston for logging
+7. Custom middlewares
+8. Custom error handling
+9. MySQL with TypeORM
+10. Redis
+11. JWT authentication
+12. File upload with multer
 
 See [changelog](https://github.com/kmpizmad/node-express-mysql-typescript-boilerplate/blob/main/CHANGELOG.md) for the latest updates.
 
