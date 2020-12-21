@@ -1,8 +1,8 @@
 # Node-Express BackEnd Boilerplate using TypeORM and TypeScript
 
 1. Express API
-2. Error handling
-3. Middlewares
+2. Custom error handling
+3. Custom middlewares
 4. MySQL with TypeORM
 5. JWT authentication
 6. File uploading with multer
@@ -15,6 +15,8 @@ See [changelog](https://github.com/kmpizmad/node-express-mysql-typescript-boiler
 `/api/users`<br />
 `/api/users/:id`
 
+`/auth/login`<br />
+`/auth/logout`<br />
 `/auth/register`<br />
 `/auth/confirm/:token` - JWT token required to create entity in the database
 
@@ -37,5 +39,4 @@ See [changelog](https://github.com/kmpizmad/node-express-mysql-typescript-boiler
 ### TODO
 
 1. [ ] Redis
-2. [ ] Login
-3. [ ] Tests
+2. [ ] Tests
