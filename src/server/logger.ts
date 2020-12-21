@@ -1,5 +1,9 @@
 import { createLogger, Logger, transports } from 'winston';
-import { loggerConsoleOptions, loggerFileOptions } from '../utils/constants';
+import {
+  environment,
+  loggerConsoleOptions,
+  loggerFileOptions,
+} from '../utils/constants';
 
 export const logger: Logger = createLogger({
   transports: [
@@ -11,6 +15,6 @@ export const logger: Logger = createLogger({
 
 export const stream = {
   write: (message: string): void => {
-    logger.info(message);
+    if (environment() !== 'test') logger.info(message);
   },
 };

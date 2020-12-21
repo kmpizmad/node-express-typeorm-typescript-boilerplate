@@ -5,7 +5,7 @@ export class User1608555678485 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     const password = await hash('admin', 10);
     await queryRunner.query(
-      `INSERT INTO yourdbname.users (id, username, email, password) VALUES ("superuser", "admin", "admin@admin.com", "${password}")`
+      `INSERT IGNORE INTO yourdbname.users (id, username, email, password) VALUES ("superuser", "admin", "admin@admin.com", "${password}")`
     );
   }
 

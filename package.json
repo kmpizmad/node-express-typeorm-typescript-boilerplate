@@ -85,6 +85,6 @@
     ],
     "verbose": true,
     "forceExit": true,
-    "coverageDirectory": "__tests__"
+    "coverageDirectory": "__coverage__"
   }
 }

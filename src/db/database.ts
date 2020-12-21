@@ -31,7 +31,7 @@ const connection = {
     });
   },
   async runMigrations(name: string) {
-    await getConnection(name).runMigrations();
+    await getConnection(name).runMigrations({ transaction: 'each' });
   },
 };
 
