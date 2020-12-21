@@ -47,5 +47,7 @@ See [changelog](https://github.com/kmpizmad/node-express-mysql-typescript-boiler
 
 ### TODO
 
-1. [ ] Redis
+1. [x] Redis
 2. [ ] Tests
+  - Unit tests for [`utils`](https://github.com/kmpizmad/node-express-typeorm-typescript-boilerplate/tree/main/src/utils)
+  - Integration tests for [`api`](https://github.com/kmpizmad/node-express-typeorm-typescript-boilerplate/tree/main/src/routes/api)
