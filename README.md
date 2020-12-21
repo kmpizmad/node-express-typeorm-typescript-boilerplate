@@ -11,7 +11,7 @@ See [changelog](https://github.com/kmpizmad/node-express-mysql-typescript-boiler
 
 ### Commands
 
-`yarn git` - shorthand for `git add . && git commit -m"<br />
+`yarn git` - shorthand for `git add . && git commit -m"`<br />
 `yarn migration` - shorthand for `typeorm migration:create -n`<br />
 `yarn test` - run tests (use --coverage option to see more elaborated results)<br />
 `yarn build` - builds the application to the `build` folder<br />
