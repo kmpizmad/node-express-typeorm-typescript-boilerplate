@@ -11,12 +11,14 @@ import { json, urlencoded } from 'body-parser';
 import { router } from '../routes/router';
 import { errorHandler, notFoundHandler } from '../middlewares/errorHandlers';
 import { join } from 'path';
+import cookieParser from 'cookie-parser';
 
 const server: Application = express();
 const port = env.PORT || 8000;
 
 // Use middlewares
 server.use(cors());
+server.use(cookieParser());
 server.use(helmet());
 server.use(morgan());
 server.use(urlencoded({ extended: false }));
