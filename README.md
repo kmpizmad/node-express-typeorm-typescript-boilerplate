@@ -1,11 +1,12 @@
 # Node-Express BackEnd Boilerplate using TypeORM and TypeScript
 
 1. Express API
-2. Custom error handling
-3. Custom middlewares
-4. MySQL with TypeORM
-5. JWT authentication
-6. File uploading with multer
+2. MySQL with TypeORM
+3. Redis
+4. JWT authentication
+5. File upload with multer
+6. Custom middlewares
+7. Custom error handling
 
 See [changelog](https://github.com/kmpizmad/node-express-mysql-typescript-boilerplate/blob/main/CHANGELOG.md) for the latest updates.
 
