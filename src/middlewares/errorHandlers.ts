@@ -7,6 +7,7 @@ export const notFoundHandler = (
   next: NextFunction
 ) => {
   const err: any = new Error('Not found');
+  err.name = 'ERR_NO_MATCH';
   res.status(404);
   next(err);
 };
@@ -20,6 +21,7 @@ export const errorHandler = (
   const errCode = res.statusCode === 200 ? 500 : res.statusCode;
 
   res.json({
+    name: err.name,
     message: err.message,
     status: errCode,
     stack: env.NODE_ENV !== 'production' ? err.stack : '❌',

@@ -21,12 +21,15 @@ export const isExistsOn = (
       ? 'Requested item already exists'
       : "Requested item doesn't exist";
 
+    const name = errorOnExist ? 'ERR_ALREADY_EXISTS' : 'ERR_NO_USER';
+
     const code = errorOnExist
       ? HttpResponse.Error.Conflict
       : HttpResponse.Error.NotFound;
 
     if (errorOnExist ? conditionOnExist : conditionOnMissing) {
       const err = new Error(message);
+      err.name = name;
       res.status(code);
       next(err);
     } else {

@@ -6,6 +6,7 @@ import * as jwt from 'jsonwebtoken';
 export const isAuthenticated: Controller = async (req, res, next) => {
   const authorization = req.headers.authorization;
   const err = new Error('Unauthenticated');
+  err.name = 'ERR_NO_USER';
 
   if (!authorization) {
     res.status(HttpResponse.Error.Unauthorized);

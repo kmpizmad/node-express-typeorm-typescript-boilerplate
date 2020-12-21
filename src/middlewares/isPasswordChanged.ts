@@ -8,6 +8,7 @@ export const isPasswordChanged: Controller = async (req, res, next) => {
 
   if (compareSync(req.body.password, user!.password)) {
     const err = new Error('Password cannot be the same');
+    err.name = 'ERR_FIELD_CONFLICT';
     res.status(HttpResponse.Error.Conflict);
     next(err);
   } else if (req.body.username || req.body.email) {
@@ -15,6 +16,7 @@ export const isPasswordChanged: Controller = async (req, res, next) => {
       .filter((field) => !!field)
       .join(', ');
     const err = new Error(`Invalid field(s): ${fields}`);
+    err.name = 'ERR_INVALID_FIELD';
     res.status(HttpResponse.Error.Forbidden);
     next(err);
   } else {
