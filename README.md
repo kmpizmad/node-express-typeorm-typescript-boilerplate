@@ -34,16 +34,16 @@ See [changelog](https://github.com/kmpizmad/node-express-mysql-typescript-boiler
 
 ### Middlewares
 
-**`isAuthenticated`**: Checks if the user is authenticated. Throws `401 - Unauthenticated` if not.
+**`isAuthenticated:`** Checks if the user is authenticated. Throws `401 - Unauthenticated` if not.
 
-**`isEmail`**: Checks if the `email` field contains a valid email format.
+**`isEmail:`** Checks if the `email` field contains a valid email format.
 
-**`isExists`**: Check if an `entity` does exist on a model. Throws corresponding error if not.<br />
+**`isExists:`** Check if an `entity` does exist on a model. Throws corresponding error if not.<br />
 <u>**Example:**</u><br />
 > _`router.route('/').post(isExistsOn(User, true), isEmail, registration.post!)`_<br />
 > _**True** means that the error should be **thrown when it exists**. `User` is the model / entity._
 
-**`isPasswordChange`**: Checks if the user posted a different password. Useful when `Change password` action happens on the frontend.
+**`isPasswordChange:`** Checks if the user posted a different password. Useful when `Change password` action happens on the frontend.
 
 ### TODO
 
