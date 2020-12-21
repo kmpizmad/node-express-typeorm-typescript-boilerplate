@@ -12,8 +12,9 @@
 8. Custom error handling
 9. MySQL with TypeORM
 10. Redis
-11. JWT authentication
-12. File upload with multer
+11. Nodemailer
+12. JWT authentication
+13. File upload with multer
 
 See [changelog](https://github.com/kmpizmad/node-express-mysql-typescript-boilerplate/blob/main/CHANGELOG.md) for the latest updates.
 
