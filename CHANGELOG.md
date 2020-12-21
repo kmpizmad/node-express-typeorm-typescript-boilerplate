@@ -10,8 +10,17 @@
    - `isExists.ts` - checks if the requested item does exist before querying the data, due to make better responses
    - `isPasswordChanged.ts` - checks if the user really changed the password
 3. [x] Added registration route
+4. [x] Added tests for the mentioned route
 
 ### Removed
 
 1. [x] Removed log files
 2. [x] Removed uploads route due to re-factor
+
+### Fixed
+
+1. [x] Error handling in middleware functions
+
+### Changed
+
+1. [x] Middleware behaviour

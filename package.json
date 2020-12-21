@@ -5,10 +5,11 @@
   "main": "src/index.ts",
   "scripts": {
     "git": "git add . && git commit -m",
-    "test": "set NODE_ENV=test && jest --detectOpenHandles --coverage",
-    "devStart": "set NODE_ENV=development && nodemon --exec ts-node src/index.ts",
+    "test": "set NODE_ENV=test && jest --detectOpenHandles",
+    "devStart": "set NODE_ENV=test && nodemon --exec ts-node src/index.ts",
+    "start": "set NODE_ENV=production && ts-node src/index.ts",
     "build": "rm -rf ./build && tsc --project .",
-    "start": "set NODE_ENV=production && ts-node src/index.ts"
+    "gen": "typeorm migration:create -n"
   },
   "keywords": [
     "boilerplate",
@@ -35,6 +36,7 @@
     "mysql": "^2.18.1",
     "nodemailer": "^6.4.17",
     "reflect-metadata": "^0.1.13",
+    "supertest": "^6.0.1",
     "typeorm": "^0.2.29",
     "winston": "^3.3.3"
   },
@@ -55,6 +57,7 @@
     "@types/mysql": "^2.15.16",
     "@types/node": "^14.14.12",
     "@types/nodemailer": "^6.4.0",
+    "@types/supertest": "^2.0.10",
     "@types/uuid": "^8.3.0",
     "@types/winston": "^2.4.4",
     "concurrently": "^5.3.0",
