@@ -9,8 +9,8 @@ export const registration: ControllerMap = {};
 registration.post = async (req, res, next) => {
   sign(
     { ...req.body },
-    env.JWT_ACCESS_TOKEN_SECRET!,
-    { expiresIn: '15m' },
+    env.JWT_ACCESS_TOKEN_SECRET || 'jwtaccesstokensecret',
+    { expiresIn: env.JWT_ACCESS_TOKEN_EXPIRATION || '15m' },
     async (err, token) => {
       if (err) next(err);
       else {

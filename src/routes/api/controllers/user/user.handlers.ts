@@ -1,5 +1,6 @@
 import { parse } from 'url';
 import { userRepo } from '../../../../db/repos';
+import { redis } from '../../../../server/redis';
 import { ControllerMap } from '../../../../types/api';
 import { HttpResponse } from '../../../../types/HttpResponse';
 import { apiMessage, ApiResponse } from '../../../../types/message';
@@ -19,11 +20,15 @@ user.get = async (req, res, next) => {
 
 // Get One
 user.getOne = async (req, res, next) => {
+  const { id } = req.params;
   let code: number = HttpResponse.Error.NotFound;
 
   await (await userRepo())
-    .findOne(req.params.id)
-    .then((user) => res.json(user))
+    .findOne(id)
+    .then((user) => {
+      res.json(user);
+      redis.setex(id, 3600, JSON.stringify(user));
+    })
     .catch((err) => {
       res.status(code);
       next(err);

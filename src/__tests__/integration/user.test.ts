@@ -1,7 +1,7 @@
-import server from '../../src/server/server';
+import server from '../../server/server';
 import supertest from 'supertest';
-import connection from '../../src/db/database';
-import { environment } from '../../src/utils/constants';
+import connection from '../../db/database';
+import { environment } from '../../utils/constants';
 
 beforeAll(async () => {
   await connection.create(environment());

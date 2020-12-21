@@ -1,5 +1,5 @@
-import { today } from '../../src/utils/constants';
-import { readLineAsync } from '../../src/utils/readLineAsync';
+import { today } from '../../utils/constants';
+import { readLineAsync } from '../../utils/readLineAsync';
 
 test('Logging works', async () => {
   const lines: any[] = [];

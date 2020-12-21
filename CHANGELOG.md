@@ -1,10 +1,10 @@
-# Changelog 1.1.2
+# Changelog 1.1.3
 
 ### Added
 
-1. [x] Added login logic and `/auth/login` route
-2. [x] Added logout logic and `/auth/logout` route
+1. [x] Added Redis
 
 ### Changed
 
-1. [x] Changed middleware error responses
+1. [x] Environment variables
+2. [x] Moved `__tests__` folder under `src`

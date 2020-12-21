@@ -12,7 +12,10 @@ logout.post = async (req, res, _next) => {
   } else {
     let payload: any = null;
     try {
-      payload = verify(token, env.JWT_REFRESH_TOKEN_SECRET!);
+      payload = verify(
+        token,
+        env.JWT_REFRESH_TOKEN_SECRET || 'jwtrefreshtokensecret'
+      );
       const user = await (await userRepo()).findOne({ id: payload.userId });
       if (!user) {
         res.json({ revokedToken: false });
