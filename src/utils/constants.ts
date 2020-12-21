@@ -3,6 +3,7 @@ import { CorsOptions } from 'cors';
 import { format } from 'winston';
 import multer from 'multer';
 
+export const environment = () => env.NODE_ENV!.trim();
 export const today = new Date().toISOString().substring(0, 10);
 
 export const storage = multer.diskStorage({

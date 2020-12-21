@@ -1,6 +1,5 @@
-import { getRepository } from 'typeorm';
 import { parse } from 'url';
-import { User } from '../../../../db/models/User';
+import { userRepo } from '../../../../db/repos';
 import { ControllerMap } from '../../../../types/api';
 import { HttpResponse } from '../../../../types/HttpResponse';
 import { apiMessage, ApiResponse } from '../../../../types/message';
@@ -12,7 +11,8 @@ export const msg = (status: string) => apiMessage('User', status);
 user.get = async (req, res, next) => {
   const query = parse(req.url, true).query || {};
 
-  User.find({ where: { ...query } })
+  await (await userRepo())
+    .find({ where: { ...query } })
     .then((users) => res.json(users))
     .catch((err) => next(err));
 };
@@ -21,7 +21,8 @@ user.get = async (req, res, next) => {
 user.getOne = async (req, res, next) => {
   let code: number = HttpResponse.Error.NotFound;
 
-  User.findOne(req.params.id)
+  await (await userRepo())
+    .findOne(req.params.id)
     .then((user) => res.json(user))
     .catch((err) => {
       res.status(code);
@@ -42,14 +43,13 @@ user.patchOne = async (req, res, next) => {
     status: 'modified',
   };
 
-  const userRepo = getRepository(User);
-  const user = await userRepo.findOne(req.params.id);
+  const user = await await (await userRepo()).findOne(req.params.id);
 
   // Update 'User' model directly
   // to run the @BeforeUpdate hook
   Object.keys(patch).forEach((key) => ((user as any)[key] = patch[key]));
 
-  userRepo
+  await (await userRepo())
     .save(user!)
     .then((user) =>
       res.status(code).json({
@@ -68,7 +68,8 @@ user.deleteOne = async (req, res, next) => {
     status: 'deleted',
   };
 
-  User.delete(req.params.id)
+  await (await userRepo())
+    .delete(req.params.id)
     .then((user) => {
       res.status(code).json({
         ...response,

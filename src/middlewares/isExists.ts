@@ -1,20 +1,21 @@
-import { BaseEntity, EntityTarget, getRepository } from 'typeorm';
+import { BaseEntity, EntityTarget, getConnection } from 'typeorm';
 import { Controller } from '../types/api';
 import { HttpResponse } from '../types/HttpResponse';
+import { environment } from '../utils/constants';
 
 export const isExistsOn = (
   model: EntityTarget<BaseEntity>,
   errorOnExist?: boolean
 ) => {
   const isExists: Controller = async (req, res, next) => {
-    const repo = getRepository(model);
-    const condition =
-      (req.params.id && !!(await repo.findOne(req.params.id))) ||
-      (
-        await repo.find({
-          where: [{ username: req.body.username }, { email: req.body.email }],
-        })
-      ).length === 0;
+    const repo = getConnection(environment()).getRepository(model);
+    const item = await repo.findOne(req.params.id);
+    const items = await repo.find({
+      where: [{ username: req.body.username }, { email: req.body.email }],
+    });
+
+    const conditionOnExist = items.length !== 0;
+    const conditionOnMissing = !item;
 
     const message = errorOnExist
       ? 'Requested item already exists'
@@ -24,7 +25,7 @@ export const isExistsOn = (
       ? HttpResponse.Error.Conflict
       : HttpResponse.Error.NotFound;
 
-    if (!condition) {
+    if (errorOnExist ? conditionOnExist : conditionOnMissing) {
       const err = new Error(message);
       res.status(code);
       next(err);

@@ -33,8 +33,10 @@ export const startServer = () => {
   server.listen(port, () => {
     console.log(yellow('Server started on port'), white(port));
     console.log(
-      cyan('Check out your server:'),
+      cyan('Check out your server at'),
       white(`http://localhost:${port}/`)
     );
   });
 };
+
+export default server;
