@@ -5,11 +5,11 @@
   "main": "src/index.ts",
   "scripts": {
     "git": "git add . && git commit -m",
+    "migration": "typeorm migration:create -n",
     "test": "set NODE_ENV=test && jest --detectOpenHandles",
-    "devStart": "set NODE_ENV=development && nodemon --exec ts-node src/index.ts",
-    "start": "set NODE_ENV=production && ts-node src/index.ts",
     "build": "rm -rf ./build && tsc --project .",
-    "gen": "typeorm migration:create -n"
+    "devStart": "set NODE_ENV=development && nodemon --exec ts-node src/index.ts",
+    "start": "set NODE_ENV=production && ts-node src/index.ts"
   },
   "keywords": [
     "boilerplate",
