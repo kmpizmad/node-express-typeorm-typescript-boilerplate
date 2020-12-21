@@ -1,26 +1,10 @@
-# Changelog 1.1.0
+# Changelog 1.1.2
 
 ### Added
 
-1. [x] Added dummy files
-2. [x] Added middleware functions
-   - `index.ts` - exports all middleware
-   - `isAuthenticated.ts` - checks if the user is authenticated before protected routes
-   - `isEmail.ts` - checks if the email used for registration is a valid email
-   - `isExists.ts` - checks if the requested item does exist before querying the data, due to make better responses
-   - `isPasswordChanged.ts` - checks if the user really changed the password
-3. [x] Added registration route
-4. [x] Added tests for the mentioned route
-
-### Removed
-
-1. [x] Removed log files
-2. [x] Removed uploads route due to re-factor
-
-### Fixed
-
-1. [x] Error handling in middleware functions
+1. [x] Added login logic and `/auth/login` route
+2. [x] Added logout logic and `/auth/logout` route
 
 ### Changed
 
-1. [x] Middleware behaviour
+1. [x] Changed middleware error responses
